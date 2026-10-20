@@ -13,6 +13,36 @@ This is the device-specific **contribution workspace**, not a firmware download.
 | Image definition | [omnipha/images](https://github.com/omnipha/images/tree/main/devices/nothing-asteroids) (may not exist yet) |
 | All phones | [ports/DEVICES.md](https://github.com/omnipha/ports/blob/main/DEVICES.md) |
 
+## Where to help on this phone
+
+[The full-port mission](https://github.com/omnipha/ports/issues/3) tracks
+Nothing Phone (3a) Pro and its physical acceptance gates. The public hardware
+matrix already has component-specific issues in `ports`; those issues remain
+the original source of test procedure and dependency status. **Do not duplicate
+them here.** Contribute logs or propose a test by commenting on the linked
+issue or by opening a new device-specific report here with a reverse link:
+
+- [First Omnipha boot and USB SSH](https://github.com/omnipha/ports/issues/6):
+  untested, blocked on an actual image and a separately approved physical test.
+- [WiFi and Bluetooth radio](https://github.com/omnipha/ports/issues/7),
+  [display/touch/GPU](https://github.com/omnipha/ports/issues/8),
+  [audio](https://github.com/omnipha/ports/issues/9),
+  [modem/SIM](https://github.com/omnipha/ports/issues/10),
+  [sensors/GPS/NFC](https://github.com/omnipha/ports/issues/11),
+  [haptics/LEDs](https://github.com/omnipha/ports/issues/12),
+  [battery/thermal/suspend](https://github.com/omnipha/ports/issues/13), and
+  [cameras](https://github.com/omnipha/ports/issues/14): all untested on an
+  Omnipha boot, not evidence of functioning drivers.
+- [Server-image build](https://github.com/omnipha/images/issues/1) depends on
+  [headless builder support](https://github.com/omnipha/builder/issues/1).
+  Current `image.yaml` is only validated, not built or released.
+
+The repo name is device-specific, but kernel work for SM7635 is shared; read
+[linux-sm7635/AGENTS.md](https://github.com/omnipha/linux-sm7635/blob/main/AGENTS.md)
+before opening a patch. A contributor cannot infer device support from a
+compiler success or a temporary debug boot. Never upload raw stock dumps,
+identifying logs or private keys.
+
 ## Can I install Omnipha?
 
 `status.boot: works`, a kernel build, an APKBUILD or an `image.yaml` does **not** mean an Omnipha image exists. Only `release.status: testing` or `official` in the canonical device record indicates a public image with SHA-256, build manifest, verified physical boot and a reviewed device-specific flashing **and rollback** guide. If it says `unreleased` or no release record exists, there is no Omnipha download or safe public flash procedure for this phone. `flash: fastboot` is metadata, not instructions. Do not flash from this README or an issue.
