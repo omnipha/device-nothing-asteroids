@@ -1,0 +1,16 @@
+name: Device test
+description: Hardware result or reproduction request for this device
+title: "[test] "
+body:
+  - type: textarea
+    attributes:
+      label: Result
+      description: Give variant, test date, pinned image/kernel identity, exact expected/observed result and redacted diagnostic logs. No secrets, identifiers or host addresses. An untested component is not broken.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Cross-repo links
+      description: Link the ports mission and relevant linux-<soc>, ports or images issue/PR. Maintainers triage before adding agent-ready.
+    validations:
+      required: false
